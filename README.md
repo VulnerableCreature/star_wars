@@ -35,6 +35,8 @@ key ("category_id") references "categories" ("id"))
 > Идем в папку (database-migrations) и переименовываем файл 2022_07_11_141XXX_create_categories_table так, чтобы число после даты было ниже, чем число в файле 2022_07_11_142XXX_create_posts_table.
 
 
+# Migration
+
 > Работа с миграциями
 
 - Когда надо, что-то добавить
