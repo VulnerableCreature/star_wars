@@ -11,14 +11,18 @@
                 </div>
                 <div class="card-body">
                     @foreach ($categories as $category)
-                        <div class="d-flex justify-content-between align-items-center mb-2 alert">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
                             <div>{{ $category->title }}</div>
-                            <div class="justify-content-end">
+                            <div class="d-flex justify-content-end">
                                 <a href="{{ route('admin.category.show', $category->id) }}"
-                                    class="btn btn-primary">Просмотреть</a>
+                                    class="btn btn-primary mx-2">Просмотреть</a>
                                 <a href="{{ route('admin.category.edit', $category->id) }}"
-                                    class="btn btn-primary">Редактировать</a>
-                                <a href="" class="btn btn-danger">Удалить</a>
+                                    class="btn btn-primary mx-3">Редактировать</a>
+                                <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="submit" class="btn btn-danger" value="Удалить">
+                                </form>
                             </div>
                         </div>
                     @endforeach

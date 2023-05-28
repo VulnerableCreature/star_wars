@@ -30,6 +30,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('/show/{category}', [CategoryController::class, 'show'])->name('admin.category.show');
         Route::get('/show/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
         Route::patch('/show/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
+        Route::delete('/{category}/destroy', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
     });
 });
 
