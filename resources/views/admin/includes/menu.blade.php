@@ -12,6 +12,6 @@
         <a href="{{ route('admin.category.index') }}" class="btn btn-outline-dark">Категории</a>
     </div>
     <div class="col">
-        <a href="" class="btn btn-outline-dark">Тэги</a>
+        <a href="{{ route('admin.tag.index') }}" class="btn btn-outline-dark">Тэги</a>
     </div>
 </div>
