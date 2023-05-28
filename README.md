@@ -31,4 +31,46 @@ key ("category_id") references "categories" ("id"))
 ```
 
 > Решение
+
 > Идем в папку (database-migrations) и переименовываем файл 2022_07_11_141XXX_create_categories_table так, чтобы число после даты было ниже, чем число в файле 2022_07_11_142XXX_create_posts_table.
+
+
+# Migration
+
+> Работа с миграциями
+
+- Когда надо, что-то добавить
+```bash
+php artisan make:migration add_column_soft_deletes_to_categories_table
+```
+- `2023_05_28_144515_add_column_soft_deletes_to_categories_table`
+```php
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('categories', function (Blueprint $table) {
+            $table->softDeletes();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
+    }
+};
+```
+- Проверяем работоспособность миграции
+```bash
+php artisan migrate 
+```
+```bash
+php artisan rollback 
+```
