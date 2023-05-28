@@ -25,6 +25,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('admin.category.index');
+        Route::get('/create', [CategoryController::class, 'create'])->name('admin.category.create');
     });
 });
 
