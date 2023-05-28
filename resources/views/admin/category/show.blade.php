@@ -17,13 +17,13 @@
                                 value="{{ $category->title }}" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="category_title" class="form-label">Дата создания</label>
-                            <input type="text" name="title" class="form-control" id="category_title"
+                            <label for="category_created" class="form-label">Дата создания</label>
+                            <input type="text" name="title" class="form-control" id="category_created"
                                 value="{{ $category->created_at }}" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="category_title" class="form-label">Дата изменения</label>
-                            <input type="text" name="title" class="form-control" id="category_title"
+                            <label for="category_updated" class="form-label">Дата изменения</label>
+                            <input type="text" name="title" class="form-control" id="category_updated"
                                 value="{{ $category->updated_at }}" readonly>
                         </div>
                         <div class="form-group">
