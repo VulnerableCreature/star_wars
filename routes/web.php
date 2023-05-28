@@ -27,6 +27,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('admin.category.index');
         Route::get('/create', [CategoryController::class, 'create'])->name('admin.category.create');
         Route::post('/', [CategoryController::class, 'store'])->name('admin.category.store');
+        Route::get('/show/{category}', [CategoryController::class, 'show'])->name('admin.category.show');
+        Route::get('/show/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
     });
 });
 
