@@ -9,9 +9,9 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected string $table = 'posts';
-    protected bool $guarded = false;
-    protected array $fillable = [
+    protected $table = 'posts';
+    protected $guarded = false;
+    protected $fillable = [
         'id',
         'title',
         'content',

@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Category\CategoryController;
+use App\Http\Controllers\Admin\Post\PostController;
 use App\Http\Controllers\Admin\Tag\TagController;
 use App\Http\Controllers\Main\IndexController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +44,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('/show/{tag}/edit', [TagController::class, 'edit'])->name('admin.tag.edit');
         Route::patch('/show/{tag}', [TagController::class, 'update'])->name('admin.tag.update');
         Route::delete('/{tag}/destroy', [TagController::class, 'destroy'])->name('admin.tag.destroy');
+    });
+
+    Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+        Route::get('/', [PostController::class, 'index'])->name('admin.post.index');
+        Route::get('/create', [PostController::class, 'create'])->name('admin.post.create');
+        Route::post('/', [PostController::class, 'store'])->name('admin.post.store');
+        Route::get('/show/{post}', [PostController::class, 'show'])->name('admin.post.show');
+        Route::get('/show/{post}/edit', [PostController::class, 'edit'])->name('admin.post.edit');
+        Route::patch('/show/{post}', [PostController::class, 'update'])->name('admin.post.update');
+        Route::delete('/{post}/destroy', [PostController::class, 'destroy'])->name('admin.post.destroy');
     });
 });
 
