@@ -19,4 +19,9 @@ class Post extends Model
         'preview_image',
         'main_image',
     ];
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');
+    }
 }

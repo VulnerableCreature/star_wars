@@ -6,7 +6,9 @@ use App\Http\Controllers\Admin\Post\Interfaces\PostInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Post\StoreRequest;
 use App\Http\Requests\Admin\Post\UpdateRequest;
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller implements PostInterface
@@ -20,15 +22,28 @@ class PostController extends Controller implements PostInterface
 
     public function create()
     {
-        return view('admin.post.create');
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('admin.post.create', compact('categories', 'tags'));
     }
 
     public function store(StoreRequest $request)
     {
-        $data = $request->validated();
-        $data['preview_image'] = Storage::put('/images', $data['preview_image']);
-        $data['main_image'] = Storage::put('/images', $data['main_image']);
-        Post::firstOrCreate($data);
+        try {
+            $data = $request->validated();
+
+            $tagIds = $data['tag_ids'];
+            unset($data['tag_ids']);
+
+            $data['preview_image'] = Storage::put('/images', $data['preview_image']);
+            $data['main_image'] = Storage::put('/images', $data['main_image']);
+
+            $post = Post::firstOrCreate($data);
+            $post->tags()->attach($tagIds);
+        } catch (\Exception) {
+            abort(404);
+        }
+
         return redirect()->route('admin.post.index');
     }
 

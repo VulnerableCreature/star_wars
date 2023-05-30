@@ -22,17 +22,18 @@
                                     <div id="category_title" class="text-danger">Это поле обязательно для заполнения</div>
                                 @enderror
                             </div>
-                            <div class="form-group mt-3">
+                            <div class="form-group mt-3 w-100">
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="floatingTextarea2" name="content" style="height: 100px"></textarea>
+                                    <textarea class="form-control" id="floatingTextarea2" name="content" style="height: 200px; width: 400px">{{ $post->content }}</textarea>
                                     <label for="floatingTextarea2">Контент</label>
                                 </div>
                                 @error('content')
                                 <div id="category_title" class="text-danger">Это поле обязательно для заполнения</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <input type="submit" value="Обновить" class="btn btn-primary mt-3">
+                            <div class="form-group mt-5">
+                                <input type="submit" value="Обновить" class="btn btn-primary me-3">
+                                <a href="{{ route('admin.post.index') }}" class="btn btn-secondary">Отмена</a>
                             </div>
                         </form>
                     </div>

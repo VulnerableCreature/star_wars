@@ -15,9 +15,9 @@
                             <div>{{ $post->title }}</div>
                             <div class="d-flex justify-content-end">
                                 <a href="{{ route('admin.post.show', $post->id) }}"
-                                   class="btn btn-primary mx-2">Просмотреть</a>
+                                   class="btn btn-primary me-3">Просмотреть</a>
                                 <a href="{{ route('admin.post.edit', $post->id) }}"
-                                   class="btn btn-primary mx-3">Редактировать</a>
+                                   class="btn btn-primary me-3">Редактировать</a>
                                 <form action="{{ route('admin.post.destroy', $post->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
