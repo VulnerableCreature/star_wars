@@ -10,7 +10,7 @@
                     <a href="{{ route('admin.post.index') }}" class="btn btn-outline-primary">Вернуться назад</a>
                 </div>
                 <div class="card-body d-flex justify-content-between align-items-center">
-                    <form action="{{ route('admin.post.store') }}" method="POST" class="w-50">
+                    <form action="{{ route('admin.post.store') }}" method="POST" class="w-50" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="category_title" class="form-label">Заголовок поста</label>
@@ -30,6 +30,14 @@
                             @error('content')
                             <div id="category_title" class="text-danger">Это поле обязательно для заполнения</div>
                             @enderror
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="formFile" class="form-label">Обложка</label>
+                            <input class="form-control" type="file" id="formFile" name="preview_image">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="formFile" class="form-label">Главное изображение</label>
+                            <input class="form-control" type="file" id="formFile" name="main_image">
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Создать" class="btn btn-primary mt-3">

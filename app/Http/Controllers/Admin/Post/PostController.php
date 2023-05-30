@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Post\StoreRequest;
 use App\Http\Requests\Admin\Post\UpdateRequest;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller implements PostInterface
 {
@@ -25,10 +26,9 @@ class PostController extends Controller implements PostInterface
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        Post::firstOrCreate(['title' => $data['title']], [
-            'title' => $data['title'],
-            'content' => $data['content'],
-        ]);
+        $data['preview_image'] = Storage::put('/images', $data['preview_image']);
+        $data['main_image'] = Storage::put('/images', $data['main_image']);
+        Post::firstOrCreate($data);
         return redirect()->route('admin.post.index');
     }
 
