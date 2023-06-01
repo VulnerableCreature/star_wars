@@ -66,7 +66,9 @@
                             </div>
                             <div class="form-group mt-5">
                                 <input type="submit" value="Обновить" class="btn btn-primary me-3">
-                                <a href="{{ route('admin.post.index') }}" class="btn btn-secondary">Отмена</a>
+                                <a href="{{ route('admin.post.show', $post->id) }}"
+                                   class="btn btn-primary me-3">К посту</a>
+                                <a href="{{ route('admin.post.index') }}" class="btn btn-secondary me-3">Отмена</a>
                             </div>
                         </form>
                     </div>

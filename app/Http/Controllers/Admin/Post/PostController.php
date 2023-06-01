@@ -49,14 +49,15 @@ class PostController extends Controller implements PostInterface
 
     public function show(Post $post)
     {
-        return view('admin.post.show', compact('post'));
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('admin.post.show', compact('post', 'categories', 'tags'));
     }
 
     public function edit(Post $post)
     {
         $categories = Category::all();
         $tags = Tag::all();
-        $currentPost = Post::find($post->id);
         return view('admin.post.edit', compact('post', 'categories', 'tags'));
     }
 
