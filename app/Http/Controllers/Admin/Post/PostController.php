@@ -56,12 +56,14 @@ class PostController extends Controller implements PostInterface
     {
         $categories = Category::all();
         $tags = Tag::all();
+        $currentPost = Post::find($post->id);
         return view('admin.post.edit', compact('post', 'categories', 'tags'));
     }
 
     public function update(UpdateRequest $request, Post $post)
     {
         $data = $request->validated();
+
         $tagIds = $data['tag_ids'];
         unset($data['tag_ids']);
 
