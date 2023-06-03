@@ -52,14 +52,14 @@
                             </div>
                             <div class="form-group mt-3">
                                 <label for="formFile" class="form-label">Главное изображение</label>
-                                <input class="form-control" value="{{ $post->main_image }}" type="file" id="formFile" name="main_image">
+                                <input class="form-control" type="file" id="formFile" name="main_image">
                                 <div class="mt-3">
                                     <img src="{{ asset('storage/'. $post->main_image) }}" alt="preview_image" class="img-thumbnail w-25">
                                 </div>
                             </div>
                             <div class="form-group mt-3">
                                 <label for="formFile" class="form-label">Обложка</label>
-                                <input class="form-control" type="file" value="{{ $post->preview_image }}" id="formFile" name="preview_image">
+                                <input class="form-control" type="file" id="formFile" name="preview_image">
                                 <div class="mt-2">
                                     <img src="{{ asset('storage/'. $post->preview_image) }}" alt="main_image" class="img-thumbnail w-25">
                                 </div>

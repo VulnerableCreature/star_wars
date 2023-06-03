@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category\Interfaces;
+namespace App\Http\Controllers\Admin\Interfaces;
 
 use App\Http\Requests\Admin\Category\StoreRequest;
 use App\Http\Requests\Admin\Category\UpdateRequest;
