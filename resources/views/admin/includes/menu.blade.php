@@ -14,4 +14,7 @@
     <div class="col">
         <a href="{{ route('admin.tag.index') }}" class="btn btn-outline-dark">Тэги</a>
     </div>
+    <div class="col">
+        <a href="{{ route('admin.role.index') }}" class="btn btn-outline-dark">Роли</a>
+    </div>
 </div>

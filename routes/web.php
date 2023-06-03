@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Post\PostController;
+use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Tag\TagController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Main\IndexController;
@@ -65,6 +66,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('/show/{user}/edit', [UserController::class, 'edit'])->name('admin.user.edit');
         Route::patch('/show/{user}', [UserController::class, 'update'])->name('admin.user.update');
         Route::delete('/{user}/destroy', [UserController::class, 'destroy'])->name('admin.user.destroy');
+    });
+
+    Route::group(['namespace' => 'Role', 'prefix' => 'roles'], function () {
+        Route::get('/', [RoleController::class, 'index'])->name('admin.role.index');
+        Route::get('/create', [RoleController::class, 'create'])->name('admin.role.create');
+        Route::post('/', [RoleController::class, 'store'])->name('admin.role.store');
+        Route::get('/show/{role}', [RoleController::class, 'show'])->name('admin.role.show');
+        Route::get('/show/{role}/edit', [RoleController::class, 'edit'])->name('admin.role.edit');
+        Route::patch('/show/{role}', [RoleController::class, 'update'])->name('admin.role.update');
+        Route::delete('/{role}/destroy', [RoleController::class, 'destroy'])->name('admin.role.destroy');
     });
 });
 
