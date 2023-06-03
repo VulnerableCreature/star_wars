@@ -32,4 +32,20 @@ class UpdateRequest extends FormRequest
             'tag_ids.*' => 'nullable|integer|exists:tags,id',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Это поле обязательно для заполнения',
+            'title.string' => 'Необходимо ввести строку [А-а,Я-я]',
+            'content.required' => 'Это поле обязательно для заполнения',
+            'content.string' => 'Необходимо ввести строку [А-а,Я-я]',
+            'main_image.required' => 'Это поле обязательно для заполнени',
+            'main_image.file' => 'Выберите файл',
+            'category_id.required' => 'Это поле обязательно для заполнени',
+            'category_id.integer' => 'Выберите категорию',
+            'category_id.exists' => 'Такой категории не существует',
+            'tag_ids.array' => 'Выберите один и более тэгов',
+        ];
+    }
 }

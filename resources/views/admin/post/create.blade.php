@@ -18,7 +18,7 @@
                             <input type="text" name="title" value="{{ old('title') }}" class="form-control"
                                    id="category_title">
                             @error('title')
-                            <div id="category_title" class="text-danger">Это поле обязательно для заполнения</div>
+                            <div id="category_title" class="text-danger">{{ $message }}</div>
                             @enderror
                             <div id="category_title" class="form-text">Заголовок поста не должен повторяться. Поле
                                 уникальное
@@ -31,7 +31,7 @@
                                 <label for="floatingTextarea2">Контент</label>
                             </div>
                             @error('content')
-                            <div id="category_title" class="text-danger">Это поле обязательно для заполнения</div>
+                            <div id="category_title" class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-floating mt-3">
@@ -42,6 +42,9 @@
                                 @endforeach
                             </select>
                             <label for="floatingSelect">Выберите категорию</label>
+                            @error('category_id')
+                            <div id="category_title" class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         @error('category_id')
                         <div id="category_title" class="text-danger">Это поле обязательно для заполнения</div>
@@ -54,20 +57,23 @@
                                         {{ is_array(old('tag_ids') && in_array($tag->id, old('tag_ids')) ? 'selected' : '') }} value="{{ $tag->id }}">{{ $tag->title }}</option>
                                 @endforeach
                             </select>
+                            @error('tag_ids')
+                            <div id="category_title" class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="formFile" class="form-label">Обложка</label>
                             <input class="form-control" type="file" id="formFile" name="preview_image">
                         </div>
                         @error('preview_image')
-                        <div id="category_title" class="text-danger">Это поле обязательно для заполнения</div>
+                        <div id="category_title" class="text-danger">{{ $message }}</div>
                         @enderror
                         <div class="mb-3 mt-3">
                             <label for="formFile" class="form-label">Главное изображение</label>
                             <input class="form-control" type="file" id="formFile" name="main_image">
                         </div>
                         @error('main_image')
-                        <div id="category_title" class="text-danger">Это поле обязательно для заполнения</div>
+                        <div id="category_title" class="text-danger">{{ $message }}</div>
                         @enderror
                         <div class="form-group">
                             <input type="submit" value="Создать" class="btn btn-primary mt-3">

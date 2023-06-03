@@ -19,7 +19,7 @@
                                 <input type="text" name="title" class="form-control" id="category_title"
                                        value="{{ $post->title }}">
                                 @error('title')
-                                <div id="category_title" class="text-danger">Это поле обязательно для заполнения</div>
+                                <div id="category_title" class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group mt-3 w-100">
@@ -29,7 +29,7 @@
                                     <label for="floatingTextarea2">Контент</label>
                                 </div>
                                 @error('content')
-                                <div id="category_title" class="text-danger">Это поле обязательно для заполнения</div>
+                                <div id="category_title" class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-floating mt-3">
@@ -40,6 +40,9 @@
                                     @endforeach
                                 </select>
                                 <label for="floatingSelect">Выберите категорию</label>
+                                @error('$category_id')
+                                <div id="category_title" class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group mt-3">
                                 <select class="form-select mt-3" name="tag_ids[]" multiple="multiple"
@@ -49,6 +52,9 @@
                                             {{ is_array($post->tags->pluck('id')->toArray()) && in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }} value="{{ $tag->id }}">{{ $tag->title }}</option>
                                     @endforeach
                                 </select>
+                                @error('tag_ids')
+                                <div id="category_title" class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group mt-3">
                                 <label for="formFile" class="form-label">Главное изображение</label>
