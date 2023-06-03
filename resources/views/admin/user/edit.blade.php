@@ -37,7 +37,7 @@
                             <div class="d-flex align-items-center"><span class="{{ $user->role->id == 1 ? 'badge text-bg-danger' : 'badge text-bg-dark' }}">{{ $user->role->title }}</span></div>
                             <div class="form-group mt-5">
                                 <input type="submit" value="Обновить" class="btn btn-primary me-3">
-                                <a href="{{ route('admin.userRole.edit', $user->id) }}"
+                                <a href="{{ route('admin.user.role.edit', $user->id) }}"
                                    class="btn btn-primary me-3">Роль</a>
                                 <a href="{{ route('admin.user.index') }}" class="btn btn-secondary me-3">Отмена</a>
                             </div>

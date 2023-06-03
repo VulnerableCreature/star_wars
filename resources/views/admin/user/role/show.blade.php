@@ -1,25 +1,27 @@
 @extends('admin.layouts.app')
-@section('title', 'Пользователь')
+@section('title', 'Пользователь | Роль')
 
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <div>Административная панель | Пользователи | <strong>{{ $user->name }} </strong></div>
+                    <div>Административная панель | Пользователи | Роль | <strong>{{ $user->name }} | <span
+                                class="{{ $user->role->id == 1 ? 'badge text-bg-danger' : 'badge text-bg-dark' }}">{{ $user->role->title }}</span>
+                        </strong></div>
                     <a href="{{ route('admin.user.index') }}" class="btn btn-outline-primary">Вернуться назад</a>
                 </div>
                 <div class="card-body">
                     <div class="card-body w-25">
-                        <form action="{{ route('admin.userRole.update', $user->id) }}" method="POST">
+                        <form action="{{ route('admin.user.role.update', $user->id) }}" method="POST">
                             @csrf
                             @method('PATCH')
                             <span
                                 class="{{ $user->role->id == 1 ? 'badge text-bg-danger' : 'badge text-bg-dark' }}">{{ $user->role->title }}</span>
-                            <div class="form-group mt-3">
-                                <label for="name" class="form-label">Имя пользователя</label>
+                            <div class="form-floating mt-3">
                                 <input type="text" name="name" value="{{ $user->name }}" class="form-control"
                                        id="name" readonly>
+                                <label for="name">Имя пользователя</label>
                             </div>
                             <div class="form-floating mt-3">
                                 <select class="form-select" id="floatingSelect" aria-label="" name="role_id">
@@ -42,6 +44,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
