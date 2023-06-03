@@ -34,7 +34,7 @@
                                 </div>
                                 <input type="hidden" value="{{ $user->id }}" name="user_id">
                             </div>
-                            <div class="d-flex align-items-center"><span class="{{ $user->role->title == 'Администратор' ? 'badge text-bg-danger' : 'badge text-bg-dark' }}">{{ $user->role->title }}</span></div>
+                            <div class="d-flex align-items-center"><span class="{{ $user->role->id == 1 ? 'badge text-bg-danger' : 'badge text-bg-dark' }}">{{ $user->role->title }}</span></div>
                             <div class="form-group mt-5">
                                 <input type="submit" value="Обновить" class="btn btn-primary me-3">
                                 <a href="{{ route('admin.userRole.edit', $user->id) }}"

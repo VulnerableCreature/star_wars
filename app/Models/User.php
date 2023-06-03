@@ -16,6 +16,10 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
     use SoftDeletes;
 
+    const ROLE_ADMIN = 1;
+    const ROLE_READER = 3;
+    const ROLE_MODERATOR = 4;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -49,7 +53,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function role() : BelongsTo
+    public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class, 'role_id', 'id');
     }

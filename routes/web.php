@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Main'], function () {
     Route::get('/', [IndexController::class, 'index'])->name('main.index');
 });
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {

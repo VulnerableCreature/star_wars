@@ -13,7 +13,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 // TODO: Реализовать интерфейс для работы с удалёнными записями, SoftDeletes - TagTrashedInterface
-// TODO: Реализовать редактирование роли пользователя как отдельный механизм, создать отдельный интерфейс UserRoleInterface, сделать другой UI для этого
 class UserController extends Controller implements UserInterface, UserRoleInterface
 {
     public function index()
