@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Tag\Interfaces;
+namespace App\Http\Controllers\Admin\Interfaces;
 
 use App\Http\Requests\Admin\Tag\StoreRequest;
 use App\Http\Requests\Admin\Tag\UpdateRequest;

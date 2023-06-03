@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Tag;
 
-use App\Http\Controllers\Admin\Tag\Interfaces\TagInterface;
+use App\Http\Controllers\Admin\Interfaces\TagInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Tag\StoreRequest;
 use App\Http\Requests\Admin\Tag\UpdateRequest;

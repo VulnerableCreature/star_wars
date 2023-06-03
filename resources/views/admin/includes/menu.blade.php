@@ -6,7 +6,7 @@
         <a href="" class="btn btn-outline-dark">Пользователи</a>
     </div>
     <div class="col mx-2">
-        <a href="" class="btn btn-outline-dark">Посты</a>
+        <a href="{{ route('admin.post.index') }}" class="btn btn-outline-dark">Посты</a>
     </div>
     <div class="col mx-2">
         <a href="{{ route('admin.category.index') }}" class="btn btn-outline-dark">Категории</a>
