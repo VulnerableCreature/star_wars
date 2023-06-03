@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Post\PostController;
 use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Tag\TagController;
+use App\Http\Controllers\Admin\User\Role\RoleUserController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Main\IndexController;
 use Illuminate\Support\Facades\Auth;
@@ -68,8 +69,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::delete('/{user}/destroy', [UserController::class, 'destroy'])->name('admin.user.destroy');
 
         Route::group(['namespace' => 'User', 'prefix' => 'role'], function () {
-            Route::get('user/{user}', [UserController::class, 'showUserRole'])->name('admin.userRole.edit');
-            Route::patch('user/{user}', [UserController::class, 'updateUserRole'])->name('admin.userRole.update');
+            Route::get('/{user}/edit', [RoleUserController::class, 'show'])->name('admin.user.role.edit');
+            Route::patch('/{user}', [RoleUserController::class, 'update'])->name('admin.user.role.update');
         });
     });
 
