@@ -3,7 +3,7 @@
         <a href="{{ route('admin.index') }}" class="btn btn-outline-dark">Главная</a>
     </div>
     <div class="col mx-2">
-        <a href="" class="btn btn-outline-dark">Пользователи</a>
+        <a href="{{ route('admin.user.index') }}" class="btn btn-outline-dark">Пользователи</a>
     </div>
     <div class="col mx-2">
         <a href="{{ route('admin.post.index') }}" class="btn btn-outline-dark">Посты</a>

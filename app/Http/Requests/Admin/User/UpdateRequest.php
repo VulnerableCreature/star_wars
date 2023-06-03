@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Post;
+namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,8 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|string',
             'content' => 'required|string',
-            'preview_image' => 'required|file',
-            'main_image' => 'required|file',
+            'preview_image' => 'nullable|file',
+            'main_image' => 'nullable|file',
             'category_id' => 'required|integer|exists:categories,id',
             'tag_ids' => 'nullable|array',
             'tag_ids.*' => 'nullable|integer|exists:tags,id',
@@ -40,9 +40,9 @@ class StoreRequest extends FormRequest
             'title.string' => 'Необходимо ввести строку [А-а,Я-я]',
             'content.required' => 'Это поле обязательно для заполнения',
             'content.string' => 'Необходимо ввести строку [А-а,Я-я]',
-            'main_image.required' => 'Это поле обязательно для заполнения',
+            'main_image.required' => 'Это поле обязательно для заполнени',
             'main_image.file' => 'Выберите файл',
-            'category_id.required' => 'Это поле обязательно для заполнения',
+            'category_id.required' => 'Это поле обязательно для заполнени',
             'category_id.integer' => 'Выберите категорию',
             'category_id.exists' => 'Такой категории не существует',
             'tag_ids.array' => 'Выберите один и более тэгов',
