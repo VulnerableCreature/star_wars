@@ -14,11 +14,11 @@
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <div>{{ $user->name }}</div>
                             <div class="d-flex justify-content-end">
-                                <a href="{{ route('admin.user.show') }}"
+                                <a href="{{ route('admin.user.show', $user->id) }}"
                                    class="btn btn-primary me-3">Просмотреть</a>
-                                <a href="{{ route('admin.user.edit') }}"
+                                <a href="{{ route('admin.user.edit', $user->id) }}"
                                    class="btn btn-primary me-3">Редактировать</a>
-                                <form action="{{ route('admin.user.destroy') }}" method="POST">
+                                <form action="{{ route('admin.user.destroy', $user->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <input type="submit" class="btn btn-danger" value="Удалить">

@@ -23,29 +23,26 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string',
-            'content' => 'required|string',
-            'preview_image' => 'nullable|file',
-            'main_image' => 'nullable|file',
-            'category_id' => 'required|integer|exists:categories,id',
-            'tag_ids' => 'nullable|array',
-            'tag_ids.*' => 'nullable|integer|exists:tags,id',
+            'name' => 'required|string',
+            'email' => 'required|string|email|unique:users',
+            'role_id' => 'required|integer|exists:roles,id'
         ];
     }
 
     public function messages()
     {
         return [
-            'title.required' => 'Это поле обязательно для заполнения',
-            'title.string' => 'Необходимо ввести строку [А-а,Я-я]',
-            'content.required' => 'Это поле обязательно для заполнения',
-            'content.string' => 'Необходимо ввести строку [А-а,Я-я]',
-            'main_image.required' => 'Это поле обязательно для заполнени',
-            'main_image.file' => 'Выберите файл',
-            'category_id.required' => 'Это поле обязательно для заполнени',
-            'category_id.integer' => 'Выберите категорию',
-            'category_id.exists' => 'Такой категории не существует',
-            'tag_ids.array' => 'Выберите один и более тэгов',
+            'email.unique' => 'Пользователь с таким e-mail существует'
+//            'title.required' => 'Это поле обязательно для заполнения',
+//            'title.string' => 'Необходимо ввести строку [А-а,Я-я]',
+//            'content.required' => 'Это поле обязательно для заполнения',
+//            'content.string' => 'Необходимо ввести строку [А-а,Я-я]',
+//            'main_image.required' => 'Это поле обязательно для заполнени',
+//            'main_image.file' => 'Выберите файл',
+//            'category_id.required' => 'Это поле обязательно для заполнени',
+//            'category_id.integer' => 'Выберите категорию',
+//            'category_id.exists' => 'Такой категории не существует',
+//            'tag_ids.array' => 'Выберите один и более тэгов',
         ];
     }
 }

@@ -6,9 +6,12 @@ use App\Http\Controllers\Admin\Interfaces\UserInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\StoreRequest;
 use App\Http\Requests\Admin\User\UpdateRequest;
+use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 // TODO: Реализовать интерфейс для работы с удалёнными записями, SoftDeletes - TagTrashedInterface
+// TODO: Реализовать редактирование роли пользователя как отдельный механизм, создать отдельный интерфейс UserRoleInterface, сделать другой UI для этого
 class UserController extends Controller implements UserInterface
 {
     public function index()
@@ -19,24 +22,28 @@ class UserController extends Controller implements UserInterface
 
     public function create()
     {
-        return view('admin.user.create');
+        $roles = Role::all();
+        return view('admin.user.create', compact('roles'));
     }
 
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        User::firstOrCreate($data);
+        $data['password'] = Hash::make($data['password']);
+        User::firstOrCreate(['email' => $data['email']], $data);
         return redirect()->route('admin.user.index');
     }
 
     public function show(User $user)
     {
-        return view('admin.user.show', compact('user'));
+        $roles = Role::all();
+        return view('admin.user.show', compact('user', 'roles'));
     }
 
     public function edit(User $user)
     {
-        return view('admin.user.edit', compact('user'));
+        $roles = Role::all();
+        return view('admin.user.edit', compact('user', 'roles'));
     }
 
     public function update(UpdateRequest $request, User $user)
