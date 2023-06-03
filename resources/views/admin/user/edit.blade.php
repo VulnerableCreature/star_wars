@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Пост')
+@section('title', 'Пользователь')
 
 @section('content')
     <div class="row justify-content-center">
@@ -32,22 +32,13 @@
                                 <div id="email" class="form-text">E-mail пользователя не должен повторяться. Поле
                                     уникальное
                                 </div>
+                                <input type="hidden" value="{{ $user->id }}" name="user_id">
                             </div>
-                            <div class="d-flex align-items-center"><span class="{{ $user->role->title == 'Администратор' ? 'badge text-bg-danger' : 'badge text-bg-info' }}">{{ $user->role->title }}</span></div>
-                            <div class="form-floating mt-3">
-                                <select class="form-select" id="floatingSelect" aria-label="" name="role_id">
-                                    @foreach($roles as $role)
-                                        <option
-                                            value="{{ $role->id }}" {{ $role->id == old('role_id') ? 'selected' : '' }}>{{ $role->title }}</option>
-                                    @endforeach
-                                </select>
-                                <label for="floatingSelect">Выберите роль пользователя</label>
-                                @error('category_id')
-                                <div id="category_title" class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
+                            <div class="d-flex align-items-center"><span class="{{ $user->role->title == 'Администратор' ? 'badge text-bg-danger' : 'badge text-bg-dark' }}">{{ $user->role->title }}</span></div>
                             <div class="form-group mt-5">
                                 <input type="submit" value="Обновить" class="btn btn-primary me-3">
+                                <a href="{{ route('admin.userRole.edit', $user->id) }}"
+                                   class="btn btn-primary me-3">Роль</a>
                                 <a href="{{ route('admin.user.index') }}" class="btn btn-secondary me-3">Отмена</a>
                             </div>
                         </form>

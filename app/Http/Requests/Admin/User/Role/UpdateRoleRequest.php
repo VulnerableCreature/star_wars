@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\User;
+namespace App\Http\Requests\Admin\User\Role;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class UpdateRoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,16 +23,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'email' => 'required|string|email|unique:users,email,' . $this->user_id,
-            'user_id' => 'required|integer|exists:users,id'
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'email.unique' => 'Пользователь с таким e-mail существует'
+            'role_id' => 'required|integer|exists:roles,id'
         ];
     }
 }

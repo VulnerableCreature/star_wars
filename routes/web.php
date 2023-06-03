@@ -66,6 +66,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('/show/{user}/edit', [UserController::class, 'edit'])->name('admin.user.edit');
         Route::patch('/show/{user}', [UserController::class, 'update'])->name('admin.user.update');
         Route::delete('/{user}/destroy', [UserController::class, 'destroy'])->name('admin.user.destroy');
+
+        Route::group(['namespace' => 'User', 'prefix' => 'role'], function () {
+            Route::get('user/{user}', [UserController::class, 'showUserRole'])->name('admin.userRole.edit');
+            Route::patch('user/{user}', [UserController::class, 'updateUserRole'])->name('admin.userRole.update');
+        });
     });
 
     Route::group(['namespace' => 'Role', 'prefix' => 'roles'], function () {

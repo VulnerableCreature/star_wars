@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <div>Административная панель | Пользователи | <strong>{{ $user->name }} <span class="{{ $user->role->title == 'Администратор' ? 'badge text-bg-danger' : 'badge text-bg-info' }}">{{ $user->role->title }}</span></strong></div>
+                    <div>Административная панель | Пользователи | <strong>{{ $user->name }} <span class="{{ $user->role->id == 1 ? 'badge text-bg-danger' : 'badge text-bg-dark' }}">{{ $user->role->title }}</span></strong></div>
                     <a href="{{ route('admin.user.index') }}" class="btn btn-outline-primary">Вернуться назад</a>
                 </div>
                 <div class="card-body">
@@ -31,9 +31,9 @@
                             <input type="datetime-local" name="" value="{{ $user->updated_at }}" class="form-control"
                                    id="email" readonly>
                         </div>
-                        <div class="form-group mt-5">
+                        <div class="form-group">
                             <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-primary me-3">Редактировать</a>
-                            <a href="{{ route('admin.user.index') }}" class="btn btn-secondary me-3">Отмена</a>
+                            <a href="{{ route('admin.user.index') }}" class="btn btn-secondary me-3">Назад</a>
                         </div>
                     </div>
                 </div>

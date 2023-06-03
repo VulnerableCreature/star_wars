@@ -18,6 +18,8 @@
                                    class="btn btn-primary me-3">Просмотреть</a>
                                 <a href="{{ route('admin.user.edit', $user->id) }}"
                                    class="btn btn-primary me-3">Редактировать</a>
+                                <a href="{{ route('admin.userRole.edit', $user->id) }}"
+                                   class="btn btn-primary me-3">Роль</a>
                                 <form action="{{ route('admin.user.destroy', $user->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
