@@ -8,7 +8,6 @@ use App\Http\Requests\Admin\Category\StoreRequest;
 use App\Http\Requests\Admin\Category\UpdateRequest;
 use App\Models\Category;
 
-// TODO: Реализовать интерфейс для работы с удалёнными записями, SoftDeletes - CategoryTrashedInterface
 class CategoryController extends Controller implements CategoryInterface
 {
     public function index()

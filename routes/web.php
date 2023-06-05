@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Category\CategoryController;
+use App\Http\Controllers\Admin\Category\Trash\CategoryTrashController;
 use App\Http\Controllers\Admin\Post\PostController;
 use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Tag\TagController;
@@ -37,6 +38,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::get('/show/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
         Route::patch('/show/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
         Route::delete('/{category}/destroy', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
+
+        Route::group(['namespace' => 'Trash', 'prefix' => 'trash'], function () {
+            Route::get('/', [CategoryTrashController::class, 'index'])->name('admin.category.trash.index');
+            Route::get('/show/{category}', [CategoryTrashController::class, 'show'])->name('admin.category.trash.show');
+            Route::post('/{id}/restore', [CategoryTrashController::class, 'restore'])->name('admin.category.trash.restore');
+            Route::delete('/{id}/force', [CategoryTrashController::class, 'force'])->name('admin.category.trash.force');
+        });
     });
 
     Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
