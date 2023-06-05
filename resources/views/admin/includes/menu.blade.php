@@ -17,4 +17,19 @@
     <div class="col">
         <a href="{{ route('admin.role.index') }}" class="btn btn-outline-dark">Роли</a>
     </div>
+    <div class="col">
+        <div class="btn-group">
+            <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Мусорка
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Посты</a></li>
+                <li><a class="dropdown-item" href="#">Категории</a></li>
+                <li><a class="dropdown-item" href="#">Тэги</a></li>
+                <li><a class="dropdown-item" href="#">Роли</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Пользователи</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
