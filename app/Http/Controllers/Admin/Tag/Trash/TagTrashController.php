@@ -8,7 +8,6 @@ use App\Models\Tag;
 
 class TagTrashController extends Controller implements TagTrashInterface
 {
-    //
     public function index()
     {
         $tags = Tag::onlyTrashed()->get();

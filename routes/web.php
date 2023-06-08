@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Category\Trash\CategoryTrashController;
+use App\Http\Controllers\Admin\Role\Trash\RoleTrashController;
 use App\Http\Controllers\Admin\Tag\Trash\TagTrashController;
 use App\Http\Controllers\Admin\Post\PostController;
 use App\Http\Controllers\Admin\Role\RoleController;
@@ -96,6 +97,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::get('/show/{role}/edit', [RoleController::class, 'edit'])->name('admin.role.edit');
         Route::patch('/show/{role}', [RoleController::class, 'update'])->name('admin.role.update');
         Route::delete('/{role}/destroy', [RoleController::class, 'destroy'])->name('admin.role.destroy');
+
+        Route::group(['namespace' => 'Trash', 'prefix' => 'trash'], function () {
+            Route::get('/', [RoleTrashController::class, 'index'])->name('admin.role.trash.index');
+            Route::post('/{id}/restore', [RoleTrashController::class, 'restore'])->name('admin.role.trash.restore');
+            Route::delete('/{id}/force', [RoleTrashController::class, 'force'])->name('admin.role.trash.force');
+        });
     });
 });
 
