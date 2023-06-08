@@ -1,12 +1,12 @@
 @extends('admin.layouts.app')
-@section('title', 'Удаленные категории')
+@section('title', 'Удаленные тэги')
 
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Административная панель | Категории | Удаленные
+                    Административная панель | Тэги | Удаленные
                 </div>
                 <div class="card-body">
                     @foreach ($tags as $tag)
