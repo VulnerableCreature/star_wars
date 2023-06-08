@@ -8,7 +8,6 @@ use App\Models\Category;
 
 class CategoryTrashController extends Controller implements CategoryTrashInterface
 {
-    //
     public function index()
     {
         $categories = Category::onlyTrashed()->get();
