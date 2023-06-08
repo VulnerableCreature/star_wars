@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Удаленные тэги')
+@section('title', 'Удаленные категории')
 
 @section('content')
     <div class="row justify-content-center">

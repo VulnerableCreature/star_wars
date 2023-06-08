@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Category\Trash\CategoryTrashController;
-use App\Http\Controllers\Admin\Role\Trash\RoleTrashController;
 use App\Http\Controllers\Admin\Tag\Trash\TagTrashController;
 use App\Http\Controllers\Admin\Post\PostController;
 use App\Http\Controllers\Admin\Role\RoleController;
