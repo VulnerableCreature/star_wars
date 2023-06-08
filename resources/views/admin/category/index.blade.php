@@ -10,6 +10,9 @@
                     <a href="{{ route('admin.category.create') }}" class="btn btn-outline-primary">Создать</a>
                 </div>
                 <div class="card-body">
+                    @if(collect($categories)->isEmpty())
+                        @include('admin.includes.data')
+                    @else
                     @foreach ($categories as $category)
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <div>{{ $category->title }}</div>
@@ -26,6 +29,7 @@
                             </div>
                         </div>
                     @endforeach
+                    @endif
                 </div>
             </div>
         </div>

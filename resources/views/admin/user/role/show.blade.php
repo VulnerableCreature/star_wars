@@ -6,8 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <div>Административная панель | Пользователи | Роль | <strong>{{ $user->name }} | <span
-                                class="{{ $user->role->id == 1 ? 'badge text-bg-danger' : 'badge text-bg-dark' }}">{{ $user->role->title }}</span>
+                    <div>Административная панель | Пользователи | Роль | <strong>{{ $user->name }}
                         </strong></div>
                     <a href="{{ route('admin.user.index') }}" class="btn btn-outline-primary">Вернуться назад</a>
                 </div>
@@ -16,8 +15,12 @@
                         <form action="{{ route('admin.user.role.update', $user->id) }}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <span
-                                class="{{ $user->role->id == 1 ? 'badge text-bg-danger' : 'badge text-bg-dark' }}">{{ $user->role->title }}</span>
+                            <span style="font-size: 14px;"
+                                    @class([
+                                'badge text-bg-danger' => $user->role->id === 1,
+                                'badge text-bg-primary' =>$user->role->id === 4,
+                                'badge text-bg-info' => $user->role->id === 3
+                                ])>{{ $user->role->title }}</span>
                             <div class="form-floating mt-3">
                                 <input type="text" name="name" value="{{ $user->name }}" class="form-control"
                                        id="name" readonly>

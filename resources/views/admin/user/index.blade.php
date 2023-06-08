@@ -12,7 +12,12 @@
                 <div class="card-body">
                     @foreach ($users as $user)
                         <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div>{{ $user->name }} <span class="{{ $user->role->id == 1 ? 'badge text-bg-danger' : 'badge text-bg-dark' }}">{{ $user->role->title }}</span></div>
+                            <div>{{ $user->name }} <span style="font-size: 14px;"
+                                    @class([
+                                'badge text-bg-danger' => $user->role->id === 1,
+                                'badge text-bg-primary' =>$user->role->id === 4,
+                                'badge text-bg-info' => $user->role->id === 3
+                                ])>{{ $user->role->title }}</span></div>
                             <div class="d-flex justify-content-end">
                                 <a href="{{ route('admin.user.show', $user->id) }}"
                                    class="btn btn-primary me-3">Просмотреть</a>

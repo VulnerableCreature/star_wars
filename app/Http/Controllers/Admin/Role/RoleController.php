@@ -14,7 +14,7 @@ class RoleController extends Controller implements RoleInterface
 {
     public function index()
     {
-        $roles = Role::all();
+        $roles = Role::all()->sortBy('title');
         return view('admin.role.index', compact('roles'));
     }
 

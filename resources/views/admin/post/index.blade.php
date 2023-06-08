@@ -10,22 +10,26 @@
                     <a href="{{ route('admin.post.create') }}" class="btn btn-outline-primary">Создать</a>
                 </div>
                 <div class="card-body">
-                    @foreach ($posts as $post)
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div>{{ $post->title }}</div>
-                            <div class="d-flex justify-content-end">
-                                <a href="{{ route('admin.post.show', $post->id) }}"
-                                   class="btn btn-primary me-3">Просмотреть</a>
-                                <a href="{{ route('admin.post.edit', $post->id) }}"
-                                   class="btn btn-primary me-3">Редактировать</a>
-                                <form action="{{ route('admin.post.destroy', $post->id) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <input type="submit" class="btn btn-danger" value="Удалить">
-                                </form>
+                    @if(collect($posts)->isEmpty())
+                        @include('admin.includes.data')
+                    @else
+                        @foreach ($posts as $post)
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>{{ $post->title }}</div>
+                                <div class="d-flex justify-content-end">
+                                    <a href="{{ route('admin.post.show', $post->id) }}"
+                                       class="btn btn-primary me-3">Просмотреть</a>
+                                    <a href="{{ route('admin.post.edit', $post->id) }}"
+                                       class="btn btn-primary me-3">Редактировать</a>
+                                    <form action="{{ route('admin.post.destroy', $post->id) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="submit" class="btn btn-danger" value="Удалить">
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>

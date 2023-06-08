@@ -19,17 +19,29 @@
     </div>
     <div class="col">
         <div class="btn-group">
-            <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                 Мусорка
             </button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{ route('admin.post.trash.index') }}">Посты</a></li>
                 <li><a class="dropdown-item" href="{{ route('admin.category.trash.index') }}">Категории</a></li>
                 <li><a class="dropdown-item" href="{{ route('admin.tag.trash.index') }}">Тэги</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
                 <li><a class="dropdown-item" href="{{ route('admin.role.trash.index') }}">Роли</a></li>
-                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
                 <li><a class="dropdown-item" href="{{ route('admin.user.trash.index') }}">Пользователи</a></li>
             </ul>
         </div>
+    </div>
+    <div class="col">
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <input class="btn btn-outline-danger" type="submit" value="Выйти">
+        </form>
     </div>
 </div>
