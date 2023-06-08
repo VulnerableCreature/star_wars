@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Административная панель | Категории | Удаленные
+                    Административная панель | Роли | Удаленные
                 </div>
                 <div class="card-body">
                     @foreach ($roles as $role)
