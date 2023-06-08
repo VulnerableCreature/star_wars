@@ -2,7 +2,7 @@
 @section('title', 'Главная')
 
 @section('content')
-    @include('admin.includes.card')
+    @include('admin.includes.card', ['some' => 'data'])
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
