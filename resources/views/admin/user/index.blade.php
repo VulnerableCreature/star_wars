@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <div>Административная панель | Посты</div>
+                    <div>Административная панель | Пользователи</div>
                     <a href="{{ route('admin.user.create') }}" class="btn btn-outline-primary">Создать</a>
                 </div>
                 <div class="card-body">

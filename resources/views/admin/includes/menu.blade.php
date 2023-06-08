@@ -28,7 +28,7 @@
                 <li><a class="dropdown-item" href="{{ route('admin.tag.trash.index') }}">Тэги</a></li>
                 <li><a class="dropdown-item" href="{{ route('admin.role.trash.index') }}">Роли</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Пользователи</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.user.trash.index') }}">Пользователи</a></li>
             </ul>
         </div>
     </div>
