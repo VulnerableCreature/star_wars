@@ -23,7 +23,7 @@
                 Мусорка
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Посты</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.post.trash.index') }}">Посты</a></li>
                 <li><a class="dropdown-item" href="{{ route('admin.category.trash.index') }}">Категории</a></li>
                 <li><a class="dropdown-item" href="{{ route('admin.tag.trash.index') }}">Тэги</a></li>
                 <li><a class="dropdown-item" href="{{ route('admin.role.trash.index') }}">Роли</a></li>
