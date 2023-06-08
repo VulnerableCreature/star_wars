@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Interfaces\Trash;
 
-interface CategoryTrashInterface
+interface TagTrashInterface
 {
     public function index();
     public function restore(int $id);

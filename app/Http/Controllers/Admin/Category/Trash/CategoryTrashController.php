@@ -15,7 +15,7 @@ class CategoryTrashController extends Controller implements CategoryTrashInterfa
         return view('admin.category.trash.index', compact('categories'));
     }
 
-    public function restore($id)
+    public function restore(int $id)
     {
         $category = Category::onlyTrashed()->findOrFail($id);
         $category->restore();
@@ -23,9 +23,9 @@ class CategoryTrashController extends Controller implements CategoryTrashInterfa
         return redirect()->route('admin.category.trash.index');
     }
 
-    public function force($category)
+    public function force(int $id)
     {
-        $category = Category::onlyTrashed()->findOrFail($category);
+        $category = Category::onlyTrashed()->findOrFail($id);
         $category->forceDelete();
 
         return redirect()->route('admin.category.trash.index');
