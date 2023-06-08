@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Post\PostController;
 use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Tag\TagController;
 use App\Http\Controllers\Admin\User\Role\RoleUserController;
+use App\Http\Controllers\Admin\User\Trash\UserTrashController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Main\IndexController;
 use Illuminate\Support\Facades\Auth;
@@ -93,6 +94,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::group(['namespace' => 'User', 'prefix' => 'role'], function () {
             Route::get('/{user}/edit', [RoleUserController::class, 'show'])->name('admin.user.role.edit');
             Route::patch('/{user}', [RoleUserController::class, 'update'])->name('admin.user.role.update');
+        });
+
+        Route::group(['namespace' => 'Trash', 'prefix' => 'trash'], function () {
+            Route::get('/', [UserTrashController::class, 'index'])->name('admin.user.trash.index');
+            Route::post('/{id}/restore', [UserTrashController::class, 'restore'])->name('admin.user.trash.restore');
+            Route::delete('/{id}/force', [UserTrashController::class, 'force'])->name('admin.user.trash.force');
         });
     });
 
