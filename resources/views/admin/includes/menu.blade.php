@@ -25,7 +25,7 @@
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Посты</a></li>
                 <li><a class="dropdown-item" href="{{ route('admin.category.trash.index') }}">Категории</a></li>
-                <li><a class="dropdown-item" href="#">Тэги</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.tag.trash.index') }}">Тэги</a></li>
                 <li><a class="dropdown-item" href="#">Роли</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Пользователи</a></li>
