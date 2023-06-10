@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Post\StoreRequest;
 use App\Http\Requests\Admin\Post\UpdateRequest;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Service\Admin\Post\PostService;
@@ -40,7 +41,8 @@ class PostController extends Controller implements PostInterface
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('admin.post.show', compact('post', 'categories', 'tags'));
+        $comments = $post->comments;
+        return view('admin.post.show', compact('post', 'categories', 'tags', 'comments'));
     }
 
     public function edit(Post $post)
