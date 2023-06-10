@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Category\StoreRequest;
 use App\Http\Requests\Admin\Category\UpdateRequest;
 use App\Models\Category;
+use Carbon\Carbon;
 
 class CategoryController extends Controller implements CategoryInterface
 {
@@ -30,7 +31,9 @@ class CategoryController extends Controller implements CategoryInterface
 
     public function show(Category $category)
     {
-        return view('admin.category.show', compact('category'));
+        $dateCreated = Carbon::parse($category->created_at);
+        $dateUpdated = Carbon::parse($category->updated_at);
+        return view('admin.category.show', compact('category', 'dateCreated', 'dateUpdated'));
     }
 
     public function edit(Category $category)
