@@ -57,6 +57,16 @@
                                class="btn btn-primary me-3">Редактировать</a>
                             <a href="{{ route('admin.post.index') }}" class="btn btn-secondary">Назад</a>
                         </div>
+                        <div class="col mt-3">
+                            <div class="badge bg-primary" style="width: 12rem; font-size: 14px;">Комментарии</div>
+                            @if(collect($comments)->isEmpty())
+                                <div class="fw-semibold mt-2 mb-3 alert alert-danger text-dark">Этот пост ещё никто не комментировал</div>
+                            @else
+                            @foreach($comments as $comment)
+                                <div class="fw-semibold mt-2 mb-3 alert alert-info text-dark">{{ $comment->comment }}</div>
+                            @endforeach
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
