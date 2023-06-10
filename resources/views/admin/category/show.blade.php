@@ -19,12 +19,12 @@
                         <div class="form-group">
                             <label for="category_created" class="form-label">Дата создания</label>
                             <input type="text" name="title" class="form-control" id="category_created"
-                                value="{{ $category->created_at }}" readonly>
+                                value="{{ $dateCreated->day }} {{ $dateCreated->translatedFormat('F') }} {{ $dateCreated->year }} {{ $dateCreated->format('H:i') }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="category_updated" class="form-label">Дата изменения</label>
                             <input type="text" name="title" class="form-control" id="category_updated"
-                                value="{{ $category->updated_at }}" readonly>
+                                value="{{ $dateUpdated->day }} {{ $dateUpdated->translatedFormat('F') }} {{ $dateUpdated->year }} {{ $dateUpdated->format('H:i') }}" readonly>
                         </div>
                         <div class="form-group">
                             <a href="{{ route('admin.category.edit', $category->id) }}"
