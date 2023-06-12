@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
-    protected string $table = 'categories';
-    protected bool $guarded = false;
-    protected array $fillable = [
+    protected $table = 'categories';
+    protected $guarded = false;
+    protected $fillable = [
         'id',
         'title'
     ];
