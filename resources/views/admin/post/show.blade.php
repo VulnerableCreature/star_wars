@@ -41,14 +41,14 @@
                         <div class="form-group mt-3">
                             <label for="formFile" class="form-label">Главное изображение</label>
                             <div class="mt-3">
-                                <img src="{{ asset('storage/'. $post->main_image) }}" alt="preview_image"
+                                <img src="{{ asset('storage/'. $post->main_image) }}" alt="main_image"
                                      class="img-thumbnail w-25">
                             </div>
                         </div>
                         <div class="form-group mt-3">
                             <label for="formFile" class="form-label">Обложка</label>
                             <div class="mt-2">
-                                <img src="{{ asset('storage/'. $post->preview_image) }}" alt="main_image"
+                                <img src="{{ asset('storage/'. $post->preview_image) }}" alt="preview_image"
                                      class="img-thumbnail w-25">
                             </div>
                         </div>
