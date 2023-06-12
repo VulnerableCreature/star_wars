@@ -12,7 +12,9 @@ use App\Http\Controllers\Admin\Tag\TagController;
 use App\Http\Controllers\Admin\User\Role\RoleUserController;
 use App\Http\Controllers\Admin\User\Trash\UserTrashController;
 use App\Http\Controllers\Admin\User\UserController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Main\Personal\PersonalController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,9 +29,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('auth');
+
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', [IndexController::class, 'index'])->name('main.index');
     Route::get('/show/{post}', [IndexController::class, 'show'])->name('main.show');
+
+    Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth', 'user']], function () {
+        Route::get('/', [PersonalController::class, 'index'])->name('user.index');
+
+    });
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
