@@ -24,7 +24,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div><a href="" class="btn btn-primary mt-3">Перейти</a></div>
+                            <div><a href="{{ route('main.show', $post->id) }}" class="btn btn-primary mt-3">Перейти</a></div>
                         </div>
                     </div>
                 @endforeach
