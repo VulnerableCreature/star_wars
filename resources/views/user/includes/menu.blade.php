@@ -6,6 +6,6 @@
         <a href="" class="btn btn-outline-dark">Мои посты</a>
     </div>
     <div class="col mx-2">
-        <a href="" class="btn btn-outline-dark">Понравившиеся посты</a>
+        <a href="{{ route('personal.liked.index') }}" class="btn btn-outline-dark">Понравившиеся посты <span class="badge text-bg-secondary">{{ $countPost }}</span></a>
     </div>
 </div>

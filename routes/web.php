@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\User\Trash\UserTrashController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Personal\Liked\LikedController;
 use App\Http\Controllers\Personal\PersonalController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -131,6 +132,11 @@ Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' =>
     Route::get('/', [PersonalController::class, 'index'])->name('personal.index');
     Route::get('/{user}/edit', [PersonalController::class, 'edit'])->name('personal.edit');
     Route::patch('/edit/{user}', [PersonalController::class, 'update'])->name('personal.update');
+
+    Route::group(['namespace' => 'Liked', 'prefix' => 'likes'], function () {
+        Route::get('/', [LikedController::class, 'index'])->name('personal.liked.index');
+        Route::get('/show/{post}', [LikedController::class, 'show'])->name('personal.liked.show');
+    });
 });
 
 Auth::routes();
