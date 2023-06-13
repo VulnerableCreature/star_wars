@@ -3,16 +3,18 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Category\Trash\CategoryTrashController;
-use App\Http\Controllers\Admin\Post\Trash\PostTrashController;
-use App\Http\Controllers\Admin\Role\Trash\RoleTrashController;
-use App\Http\Controllers\Admin\Tag\Trash\TagTrashController;
 use App\Http\Controllers\Admin\Post\PostController;
+use App\Http\Controllers\Admin\Post\Trash\PostTrashController;
 use App\Http\Controllers\Admin\Role\RoleController;
+use App\Http\Controllers\Admin\Role\Trash\RoleTrashController;
 use App\Http\Controllers\Admin\Tag\TagController;
+use App\Http\Controllers\Admin\Tag\Trash\TagTrashController;
 use App\Http\Controllers\Admin\User\Role\RoleUserController;
 use App\Http\Controllers\Admin\User\Trash\UserTrashController;
 use App\Http\Controllers\Admin\User\UserController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Personal\PersonalController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,9 +29,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('auth');
+
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', [IndexController::class, 'index'])->name('main.index');
     Route::get('/show/{post}', [IndexController::class, 'show'])->name('main.show');
+
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
@@ -119,6 +124,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
             Route::delete('/{id}/force', [RoleTrashController::class, 'force'])->name('admin.role.trash.force');
         });
     });
+});
+
+Route::group(['namespace' => 'Personal', 'prefix' => 'user', 'middleware' => ['auth', 'user']], function () {
+    Route::get('/', [PersonalController::class, 'index'])->name('user.index');
+
 });
 
 Auth::routes();
