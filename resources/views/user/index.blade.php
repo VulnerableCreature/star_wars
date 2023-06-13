@@ -6,13 +6,38 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ Auth::user()->name }}</div>
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <div>It's the post</div>
-                    <div class="justify-content-end">
-                        <a href="" class="btn btn-primary">Просмотреть</a>
-                        <a href="" class="btn btn-primary">Редактировать</a>
-                        <a href="" class="btn btn-danger">Удалить</a>
+                @include('user.includes.card-header')
+                <div class="card-body">
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ Auth::user()->email }}">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Фамилия</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ Auth::user()->lastname ?? 'Необходимо заполнить данные' }}">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Имя</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ Auth::user()->firstname ?? 'Необходимо заполнить данные' }}">
+                        </div>
+                    </div>
+                    <hr class="divider">
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Мои посты</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="0">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Понравившиеся посты</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="0">
+                        </div>
                     </div>
                 </div>
             </div>
