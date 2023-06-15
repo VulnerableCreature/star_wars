@@ -53,14 +53,23 @@
                             </div>
                         </div>
                         <div class="col mt-3">
-                            <div class="badge bg-primary" style="width: 12rem; font-size: 14px;">Комментарии</div>
-                            @if(collect($comments)->isEmpty())
-                                <div class="fw-semibold mt-2 mb-3 alert alert-danger text-dark">Этот пост ещё никто не комментировал</div>
-                            @else
-                            @foreach($comments as $comment)
+                            <div class="badge bg-primary" style="width: 12rem; font-size: 14px;">Комментарии ({{ $post->comments->count() }})</div>
+                            @auth()
+                            <div class="mb-3 mt-3">
+                                <form action="{{ route('post.comment.store', $post->id) }}" method="POST">
+                                    @csrf
+                                    <label for="exampleFormControlTextarea1" class="form-label">Отправить комментарий</label>
+                                    <textarea name="comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <input type="hidden" value="{{ $post->id }}">
+                                    <input type="submit" value="Отправить" class="btn btn-primary mt-3">
+                                </form>
+                            </div>
+                            @endauth
+                            @forelse($comments as $comment)
                                 <div class="fw-semibold mt-2 mb-3 alert alert-info text-dark">{{ $comment->comment }}</div>
-                            @endforeach
-                            @endif
+                            @empty
+                                <div class="fw-semibold mt-2 mb-3 alert alert-danger text-dark">Этот пост ещё никто не комментировал</div>
+                            @endforelse
                         </div>
                     </div>
                 </div>
