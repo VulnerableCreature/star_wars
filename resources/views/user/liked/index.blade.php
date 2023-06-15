@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body d-flex flex-column">
-                    @foreach($posts as $post)
+                    @forelse($posts as $post)
                         <div class="d-block mb-3">
                             <div class="d-flex align-items-center">
                                 <img src="{{ asset('storage/'. $post->preview_image) }}" class="img-thumbnail" alt="..."
@@ -35,7 +35,16 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <figure class="text-center">
+                            <blockquote class="blockquote">
+                                <p>Вам ничего не понравилось</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                Так сообщают <cite title="Неизвестные источники">Неизвестные источники</cite>
+                            </figcaption>
+                        </figure>
+                    @endforelse
                         <div><a href="{{ route('personal.index') }}" class="btn btn-outline-dark mt-3">Back</a></div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ use App\Http\Requests\User\Comment\StoreRequest;
 use App\Models\Comment;
 use App\Models\Post;
 
-class StoreController extends Controller
+class StoreCommentController extends Controller
 {
     public function store(StoreRequest $request, Post $post)
     {
