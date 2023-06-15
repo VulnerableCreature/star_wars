@@ -28,7 +28,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div><a href="{{ route('main.show', $post->id) }}" class="btn btn-primary mt-3">Перейти</a>
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ route('main.show', $post->id) }}" class="btn btn-primary mt-3">Перейти</a>
+                            <form action="{{ route('post.like.store', $post->id) }}" method="post">
+                                @csrf
+                                @auth()
+                                    @if(auth()->user()->likedPost->contains($post->id))
+                                        <input type="submit" value="Дизлайк" class="btn btn-outline-danger mt-3">
+                                    @else
+                                        <input type="submit" value="Лайк" class="btn btn-outline-success mt-3">
+                                    @endif
+                                @endauth
+                            </form>
+
                         </div>
                     </div>
                 </div>
