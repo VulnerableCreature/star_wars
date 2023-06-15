@@ -6,7 +6,7 @@
             @else
                 {{ Auth::user()->lastname }} {{ Auth::user()->firstname }}
             @endif
-            <div class="p-2"><a href="{{ route('personal.edit', Auth::user()->id) }}" class="btn btn-outline-primary">Редактировать</a></div>
+            <div class="p-2"><a href="{{ route('personal.edit') }}" class="btn btn-outline-primary">Редактировать</a></div>
         </div>
         <div @class([
                'badge text-bg-danger' => Auth::user()->role->id === 1,

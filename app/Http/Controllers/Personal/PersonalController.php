@@ -10,11 +10,13 @@ class PersonalController extends Controller
 {
     public function index()
     {
-        return view('user.index');
+        $countPost = auth()->user()->likedPost()->count();
+        return view('user.index', compact('countPost'));
     }
 
-    public function edit(User $user){
-        return view('user.edit', compact('user'));
+    public function edit(){
+        $countPost = auth()->user()->likedPost()->count();
+        return view('user.edit', compact('countPost'));
     }
 
     public function update(UpdateRequest $request, User $user)
