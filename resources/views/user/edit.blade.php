@@ -14,20 +14,22 @@
                         <div class="mb-3 row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="text" readonly class="form-control-plaintext w-25" id="staticEmail" value="{{ Auth::user()->email }}">
+                                <input type="text" readonly class="form-control-plaintext w-25" id="staticEmail"
+                                       value="{{ Auth::user()->email }}">
                             </div>
                         </div>
-{{--                        <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">--}}
                         <div class="mb-3 row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Фамилия</label>
                             <div class="col-sm-10">
-                                <input type="text" name="lastname" class="form-control w-25" id="staticEmail" value="{{ Auth::user()->lastname ?? 'Необходимо заполнить данные' }}">
+                                <input type="text" name="lastname" class="form-control w-25" id="staticEmail"
+                                       value="{{ Auth::user()->lastname ?? 'Необходимо заполнить данные' }}">
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Имя</label>
                             <div class="col-sm-10">
-                                <input type="text" name="firstname" class="form-control w-25" id="staticEmail" value="{{ Auth::user()->firstname ?? 'Необходимо заполнить данные' }}">
+                                <input type="text" name="firstname" class="form-control w-25" id="staticEmail"
+                                       value="{{ Auth::user()->firstname ?? 'Необходимо заполнить данные' }}">
                             </div>
                         </div>
                         <div class="form-group">

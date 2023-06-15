@@ -24,7 +24,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div><a href="{{ route('personal.liked.show', $post->id) }}" class="btn btn-primary mt-3">Перейти</a></div>
+                            <div class="d-flex flex-row">
+                                <div><a href="{{ route('personal.liked.show', $post->id) }}" class="btn btn-primary mt-3 me-2">Перейти</a></div>
+                                <div>
+                                    <form action="{{ route('personal.liked.destroy', $post->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" value="Удалить" class="btn btn-danger mt-3">
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                         <div><a href="{{ route('personal.index') }}" class="btn btn-outline-dark mt-3">Back</a></div>

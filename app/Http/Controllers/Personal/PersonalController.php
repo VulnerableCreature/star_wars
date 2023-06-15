@@ -14,9 +14,9 @@ class PersonalController extends Controller
         return view('user.index', compact('countPost'));
     }
 
-    public function edit(User $user){
+    public function edit(){
         $countPost = auth()->user()->likedPost()->count();
-        return view('user.edit', compact('user', 'countPost'));
+        return view('user.edit', compact('countPost'));
     }
 
     public function update(UpdateRequest $request, User $user)

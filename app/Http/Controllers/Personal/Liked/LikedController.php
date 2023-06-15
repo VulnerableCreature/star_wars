@@ -25,4 +25,10 @@ class LikedController extends Controller
         $countPost = auth()->user()->likedPost()->count();
         return view('user.liked.show', compact('post', 'categories', 'tags', 'comments', 'countPost'));
     }
+
+    public function destroy(Post $post)
+    {
+        auth()->user()->likedPost()->detach($post->id);
+        return redirect()->route('personal.liked.index');
+    }
 }
