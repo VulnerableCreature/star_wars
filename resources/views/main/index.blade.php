@@ -4,6 +4,12 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-8 row">
+            @auth()
+                123
+            @endauth
+            @guest()
+                321
+            @endguest
             @foreach($posts as $post)
                 <div class="card mb-3 p-3">
                     <div class="card-body">

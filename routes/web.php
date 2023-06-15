@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\User\Role\RoleUserController;
 use App\Http\Controllers\Admin\User\Trash\UserTrashController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Main\Comment\StoreController;
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Personal\Liked\LikedController;
 use App\Http\Controllers\Personal\PersonalController;
@@ -29,13 +30,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// TODO: 'views/main/index: c 7 строки две директивы blade с помощью которых надо сделать новый header'
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('auth');
 
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', [IndexController::class, 'index'])->name('main.index');
     Route::get('/post/{post}', [IndexController::class, 'show'])->name('main.show');
 
+    Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function () {
+        Route::post('/', [StoreController::class, 'store'])->name('post.comment.store');
+    });
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
