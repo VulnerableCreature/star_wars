@@ -136,8 +136,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     });
 });
 
-// TODO: Убрать middleware `user` оставить только `auth`, добавить личный кабинет в admin
-Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'user']], function () {
+Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => 'auth'], function () {
     Route::get('/', [PersonalController::class, 'index'])->name('personal.index');
     Route::get('/personal/edit', [PersonalController::class, 'edit'])->name('personal.edit');
     Route::patch('/personal/{user}', [PersonalController::class, 'update'])->name('personal.update');
