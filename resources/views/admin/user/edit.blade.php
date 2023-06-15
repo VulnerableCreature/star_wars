@@ -34,6 +34,17 @@
                                 </div>
                                 <input type="hidden" value="{{ $user->id }}" name="user_id">
                             </div>
+                            <div class="form-group mb-3">
+                                <label for="login" class="form-label">Логин пользователя</label>
+                                <input type="text" name="login" value="{{ $user->login }}" class="form-control"
+                                       id="login">
+                                @error('login')
+                                <div id="login" class="text-danger">{{ $message }}</div>
+                                @enderror
+                                <div id="email" class="form-text">E-mail пользователя не должен повторяться. Поле
+                                    уникальное
+                                </div>
+                            </div>
                             <div class="d-flex align-items-center">
                                 <span style="font-size: 14px;"
                                     @class([

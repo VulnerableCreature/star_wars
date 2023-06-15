@@ -29,7 +29,7 @@ class UserController extends Controller implements UserInterface
     {
         $data = $request->validated();
         $data['password'] = Hash::make($data['password']);
-        User::firstOrCreate(['email' => $data['email']], $data);
+        User::firstOrCreate(['email' => $data['email'], 'login' => $data['login']], $data);
         return redirect()->route('admin.user.index');
     }
 

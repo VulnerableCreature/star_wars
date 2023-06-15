@@ -31,6 +31,17 @@
                                 уникальное
                             </div>
                         </div>
+                        <div class="form-group mb-3">
+                            <label for="login" class="form-label">Логин</label>
+                            <input type="text" name="login" value="" class="form-control"
+                                   id="login">
+                            @error('login')
+                            <div id="login" class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div id="login" class="form-text">Логин пользователя не должен повторяться. Поле
+                                уникальное
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="password" class="form-label">Пароль</label>
                             <input type="password" name="password" value="" class="form-control"
