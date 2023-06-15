@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Auth;
+
+class HomeController extends Controller
+{
+    public function index()
+    {
+        if (Auth::user()->role->id == 1){
+            return redirect()->route('admin.index');
+        }else{
+            return redirect()->route('main.index');
+        }
+    }
+}

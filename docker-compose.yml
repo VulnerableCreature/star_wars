@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+
+    db_blog:
+        restart: unless-stopped
+        container_name: db_blog
+        ports:
+            - "9090:5432"
+        environment:
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_USER=root
+            - POSTGRES_DB=blog
+        image: postgres:14.5-alpine
+        volumes:
+            - './volume/pgsql:/var/lib/blog/data'
