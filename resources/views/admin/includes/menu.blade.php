@@ -18,6 +18,9 @@
         <a href="{{ route('admin.role.index') }}" class="btn btn-outline-dark">Роли</a>
     </div>
     <div class="col">
+        <a href="{{ route('personal.index') }}" class="btn btn-outline-dark">Профиль</a>
+    </div>
+    <div class="col">
         <div class="btn-group">
             <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
